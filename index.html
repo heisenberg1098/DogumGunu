@@ -2,438 +2,272 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dogum Günü</title>
-  <link rel="icon" type="image/png" href="icon.png">
-  
-  <style>
-    :root {
-      --primary-color: #ff00ff;
-      --secondary-color: #00ffff;
-      --text-color: #fff;
-    }
-
-    body {
-      user-select: none;
-      font-weight: 400;
-      font-style: normal;
-      margin: 0;
-      padding: 0;
-      background-color: #000;
-      color: var(--text-color);
-      
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-      transition: background-color 2s ease;
-    }
-
-    body.sad-theme {
-      background-color: #1a1a2e;
-    }
-
-    .sad-theme .wishes {
-      color: #a5a5a5;
-    }
-
-    .sad-theme .star {
-      animation: slowTwinkle 4s infinite;
-    }
-
-    @keyframes slowTwinkle {
-
-      0%,
-      100% {
-        opacity: 0.1;
-      }
-
-      50% {
-        opacity: 0.3;
-      }
-    }
-
-    .stars {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .star {
-      position: absolute;
-      background: #fff;
-      border-radius: 50%;
-      animation: twinkle var(--duration) infinite;
-    }
-
-    @keyframes twinkle {
-
-      0%,
-      100% {
-        opacity: 0.2;
-      }
-
-      50% {
-        opacity: 1;
-      }
-    }
-
-    .start-btn,
-    .choice-btn {
-      padding: 15px 30px;
-      font-size: 20px;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 2px solid rgba(255, 255, 255, 0.5);
-      border-radius: 10px;
-      color: white;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      z-index: 2;
-    }
-
-    .start-btn {
-      animation: glow 2s infinite;
-    }
-
-    .choice-btn {
-      margin: 10px;
-      font-size: 18px;
-      opacity: 0;
-    }
-
-    .start-btn:hover,
-    .choice-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.8);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px);
-    }
-
-    @keyframes glow {
-      0% {
-        box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
-      }
-
-      50% {
-        box-shadow: 0 0 40px rgba(255, 0, 255, 0.8);
-      }
-
-      100% {
-        box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
-      }
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .wishes {
-      text-align: center;
-      font-size: 24px;
-      margin: 20px;
-      opacity: 0;
-       font-family: "Pacifico", cursive;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    }
-
-    .emoji {
-      position: absolute;
-      font-size: 50px;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .neon-text {
-      text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color),
-        0 0 30px var(--primary-color);
-    }
-
-    .message-container {
-      max-width: 90%;
-      width: 800px;
-      text-align: center;
-      padding: 30px;
-      position: relative;
-      z-index: 1;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(0) translateX(0);
-        opacity: 0;
-      }
-
-      10% {
-        opacity: 1;
-      }
-
-      90% {
-        opacity: 1;
-      }
-
-      100% {
-        transform: translateY(-100vh) translateX(var(--random-x));
-        opacity: 0;
-      }
-    }
-
-    .mute-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 2px solid rgba(255, 255, 255, 0.5);
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
-
-    .mute-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: scale(1.1);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Happy Birthday Website 2.0 | Aoudumber Bade">
+    <meta name="github" content="https://github.com/Aoudumber-Bade">
+    <title>Dogum Günü</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image\png" href="images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            user-select: none;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <div id="wrapper">
+        <div class="flag__birthday">
+            <img src="./images/1.png" alt="" width="350" class="flag__left">
+            <img src="./images/1.png" alt="" width="350" class="flag__right">
+        </div>
+        <div class="content">
+            <div class="left">
+                <div class="title">
+                    <h1 class="happy">
+                        <span style="--t: 4s;">I</span>
+                        <span style="--t: 4.2s;">Y</span>
+                        <span style="--t: 4.4s;">I</span>
+                        <span style="--t: 4.6s;">K</span>
+                        <span style="--t: 4.8s;">ı</span>
+                    </h1>
+                    <h1 class="birthday">
+                        <span style="--t: 5s;">D</span>
+                        <span style="--t: 5.2s;">O</span>
+                        <span style="--t: 5.4s;">Ğ</span>
+                        <span style="--t: 5.6s;">D</span>
+                        <span style="--t: 5.8s;">U</span>
+                        <span style="--t: 6s;">N</span>
 
-  <body id="body" onclick="fullScreen()">
-    <div class="stars"></div>
-    <button class="start-btn" id="startBtn">Başlamak İçin Tıkla ✨</button>
-    <div id="wishesContainer" class="hidden">
-      <div id="wishes" class="wishes"></div>
+                    </h1>
+                    <div class="hat">
+                        <img src="./images/hat.png" alt="" width="130">
+                    </div>
+                </div>
+                <div class="date__of__birth">
+                    <span></span>
+                </div>
+                <div class="btn">
+                    <button id="btn__letter">
+                        <div class="mail">
+                            Ufak Bir Mektup
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                    </button>
 
+                </div>
+            </div>
+            <div class="right">
+                <div class="box__account">
+                    <div class="image">
+                        <img src="./images/unnamed.png" alt="">
+                    </div>
+                    <div class="name">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>Aslı Bozot </span>
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="balloon_one">
+                        <img width="100px" src="./images/balloon1.png" alt="">
+                    </div>
+                    <div class="balloon_two">
+                        <img width="100px" src="./images/balloon2.png" alt="">
+                    </div>
+                </div>
+                <div class="cricle">
+                    <div class="text__cricle">
+                        <span style="--i: 1;">M</span>
+                        <span style="--i: 2;">U</span>
+                        <span style="--i: 3;">T</span>
+                        <span style="--i: 4;">L</span>
+                        <span style="--i: 5;">U</span>
+                        <span style="--i: 6;"> </span>
+                        <span style="--i: 7;">Y</span>
+                        <span style="--i: 8;">I</span>
+                        <span style="--i: 9;">L</span>
+                        <span style="--i: 10;">L</span>
+                        <span style="--i: 11;">A</span>
+                        <span style="--i: 12;">R</span>
+                        <span style="--i: 13;">!</span>
+                    </div>
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+            </div>
+        </div>
+        <div class="decorate_star star1" style="--t: 15s;"></div>
+        <div class="decorate_star star2" style="--t: 15.2s;"></div>
+        <div class="decorate_star star3" style="--t: 15.4s;"></div>
+        <div class="decorate_star star4" style="--t: 15.6s;"></div>
+        <div class="decorate_star star5" style="--t: 15.8s;"></div>
+        <div class="decorate_flower--one" style="--t: 15s;">
+            <img width="20" src="./images/decorate_flower.png" alt="">
+        </div>
+        <div class="decorate_flower--two" style="--t: 15.3s;">
+            <img width="20" src="./images/decorate_flower.png" alt="">
+        </div>
+        <div class="decorate_flower--three" style="--t: 15.6s;">
+            <img width="20" src="./images/decorate_flower.png" alt="">
+        </div>
+        <div class="decorate_bottom">
+            <img src="./images/decorate.png" alt="" width="100">
+        </div>
+        <div class="smiley__icon">
+            <img src="./images/smiley_icon.png" alt="" width="100">
+        </div>
+
+
+        <div class="boxMail">
+            <i class="fa-solid fa-xmark"></i>
+            <div class="boxMail-container">
+                <div class="card1">
+                    <div class="userImg">
+                        <img src="images/unnamed.png" alt="">
+                    </div>
+                    <h4 class="username">Enes'ten 💖<span class="underline"></span></h4>
+
+                    <h3>Mutlu Yıllar</h3>
+                    <div class="imageCute">
+                        <img src="cute1.png" alt="">
+                    </div>
+                </div>
+                <div class="card2">
+                    <div class="card2-content">
+                        <h3>Dünyanın En İyi Ablasına !</h3>
+                        <h2>Sevgili Abla...
+                            Doğum günün kutlu olsun! 🥳🎂🥳
+
+                            Hayatıma girdiğin ilk günlerde aramızda bu kadar özel bir bağ olacağını tahmin edemezdim.
+                            artık gerçek bir ablasın benim için.
+
+                            Keşke hayatındaki bazı zorlukları paylaşabilseydim... Ama unutma, her zaman yanındayım.
+                            İçini dökmek istediğin her şeyi, başkalarına anlatamadıklarını bile benimle paylaşabilirsin.
+                            🤗
+
+                            Bu yıl tüm hayallerin gerçek olsun! ,
+                            "İyi ki doğdun! 🎈🎂🎈 Üzülme, mutlu ol... 😊"
+
+                            Seni çok seviyorum!
+                        </h2>
+
+                        <div class="imageCute2">
+                            <img src="cute2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <audio id="bgMusic"
-      src="https://hindi.djpunjab.app/load/MLNyCd86wmLEJPdPIiSd8Q==/Badhai%20Ho%20Badhai%20Janm%20Din%20Ki.mp3"
-      loop></audio>
-    <audio id="sisterMusic" src="https://s320.djpunjab.is/data/48/55179/304011/Dil%20De%20Tukde%20-%20A%20Kay.mp3"
-      loop></audio>
-    <audio id="bestFriendMusic"
-      src="https://hindi.djpunjab.app/load/cPnz7r4F4iEtdhKQGvl6Jw==/Yaara%20Teri%20Yaari%20Happy.mp3" loop></audio>
-
-    <button id="muteButton" class="mute-btn">🔊</button>
-    <script>
-      const wishes = [
-        "🌟 Sevgili Aslı Abla... 🌟",
-        "Bu özel günde... ✨",
-        "Sana içimden geçenleri söylemek istiyorum...",
-        "Etrafına hep neşe saçıyorsun! 🎉",
-        "Gülüşün en kötü günümü bile aydınlatır! 💫",
-        "Dünyanın en iyi Ablasına... 💖",
-        "Verdigin Tavsiyeleri unutmayacagım... 💖",
-        "Doğum günün kutlu olsun! 🎂",
-      ];
-
-      const bestFriendMessages = [
-        "Seni tanıdığım için çok şanslıyım... 🌟",
-        "En kötü anımda bile yanımda olduğun için teşekkürler ✨",
-        "Dostluğumuz benim için her şeyden değerli 💖",
-        "Biliyor musun? Sen benim en iyi ilacımsın! 😊",
-        "Kötü bir günümde arayacağım tek isimsin...",
-        "Sana 'En İyi Arkadaşım' demek bile az kalır! 🤗",
-        "Sonsuza kadar arkadaş kalalım, tamam mı? 💫"
-      ];
-
-      function createStars() {
-        const starsContainer = document.createElement("div");
-        starsContainer.className = "stars";
-        for (let i = 0; i < 200; i++) {
-          const star = document.createElement("div");
-          star.className = "star";
-          star.style.width = `${Math.random() * 3}px`;
-          star.style.height = star.style.width;
-          star.style.left = `${Math.random() * 100}%`;
-          star.style.top = `${Math.random() * 100}%`;
-          star.style.setProperty("--duration", `${Math.random() * 3 + 1}s`);
-          starsContainer.appendChild(star);
-        }
-        document.body.appendChild(starsContainer);
-      }
-
-      function createEmoji() {
-        const emojis = ["💖", "⭐", "✨", "🎉", "🎂", "🎈"];
-        const emoji = document.createElement("div");
-        emoji.className = "emoji";
-        emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-        emoji.style.left = Math.random() * window.innerWidth + "px";
-        emoji.style.top = "-50px";
-        document.body.appendChild(emoji);
-        const animation = emoji.animate(
-          [
-            {
-              transform: "translateY(0) rotate(0deg)"
-            },
-            {
-              transform: `translateY(${window.innerHeight + 50}px) rotate(${Math.random() * 360
-                }deg)`
+</body>
+<script>
+    let datetxt = "30 Temmuz";
+    let datatxtletter = "My love. You are a very special girl. I always silently thank you for coming into my life. Today, I wish you all the best, lots of health, and lots of joy. I always hope we will celebrate many more birthdays like this together. Happy birthday to you.💕";
+    let titleLetter = "To you";
+    let charArrDate = datetxt.split('');
+    let charArrDateLetter = datatxtletter.split('');
+    let charArrTitle = titleLetter.split('');
+    let currentIndex = 0;
+    let currentIndexLetter = 0;
+    let currentIndexTitle = 0;
+    let date__of__birth = document.querySelector(".date__of__birth span");
+    let text__letter = document.querySelector(".text__letter p");
+    setTimeout(function () {
+        timeDatetxt = setInterval(function () {
+            if (currentIndex < charArrDate.length) {
+                date__of__birth.textContent += charArrDate[currentIndex];
+                currentIndex++;
             }
-          ],
-          {
-            duration: 3000,
-            easing: "linear"
-          }
-        );
-        animation.onfinish = () => emoji.remove();
-      }
-
-      function stopAllMusic() {
-        const audios = ["bgMusic", "sisterMusic", "bestFriendMusic"];
-        audios.forEach((id) => {
-          const audio = document.getElementById(id);
-          if (audio) {
-            audio.pause();
-            audio.currentTime = 0;
-          }
-        });
-      }
-
-      function playAudio(audioId) {
-        const audio = document.getElementById(audioId);
-        if (audio) {
-          audio.volume = 0.5;
-          audio.play().catch((err) => console.log("Audio play failed:", err));
-        }
-      }
-      let emojiInterval;
-      async function typeWriter(text) {
-        const wishesElement = document.getElementById("wishes");
-        wishesElement.style.opacity = 1;
-        wishesElement.innerHTML = "";
-        wishesElement.className = "wishes neon-text";
-        for (let char of text) {
-          wishesElement.innerHTML += char;
-          await new Promise((resolve) => setTimeout(resolve, 100));
-        }
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-      }
-      let isMuted = false;
-      const muteButton = document.getElementById("muteButton");
-      muteButton.addEventListener("click", () => {
-        const audios = ["bgMusic", "sisterMusic", "bestFriendMusic"];
-        isMuted = !isMuted;
-        audios.forEach((id) => {
-          const audio = document.getElementById(id);
-          if (audio) {
-            audio.muted = isMuted;
-          }
-        });
-        // Update button text
-        muteButton.textContent = isMuted ? "🔇" : "🔊";
-      });
-      async function makeChoice(choice) {
-        clearInterval(emojiInterval);
-        const wishesElement = document.getElementById("wishes");
-        document.getElementById("choices").style.display = "none";
-        stopAllMusic();
-        if (choice === "sister") {
-          document.body.classList.add("sad-theme");
-          const sisterAudio = document.getElementById("sisterMusic");
-          sisterAudio.muted = isMuted;
-          try {
-            const playPromise = sisterAudio.play();
-            if (playPromise !== undefined) {
-              playPromise.catch((error) => {
-                console.log("Audio play failed:", error);
-              });
+            else {
+                let i = document.createElement("i");
+                i.className = "fa-solid fa-star"
+                document.querySelector(".date__of__birth").prepend(i)
+                document.querySelector(".date__of__birth").appendChild(i.cloneNode(true))
+                clearInterval(timeDatetxt)
             }
-          } catch (err) {
-            console.log("Audio play failed:", err);
-          }
-          for (let message of sisterChat) {
-            await typeWriter(message);
-          }
-          document.getElementById("choices").innerHTML = `
-                    <button class="choice-btn" onclick="makeChoice('bestfriend')">Best Friend</button>
-                `;
-          document.getElementById("choices").style.display = "block";
-          document.querySelector(".choice-btn").style.opacity = 1;
-        } else {
-          document.body.classList.remove("sad-theme");
-          const bestFriendAudio = document.getElementById("bestFriendMusic");
-          bestFriendAudio.muted = isMuted;
-          try {
-            const playPromise = bestFriendAudio.play();
-            if (playPromise !== undefined) {
-              playPromise.catch((error) => {
-                console.log("Audio play failed:", error);
-              });
-            }
-          } catch (err) {
-            console.log("Audio play failed:", err);
-          }
-          emojiInterval = setInterval(createEmoji, 300);
-          for (let message of bestFriendMessages) {
-            await typeWriter(message);
-          }
-          
-        }
-      }
-      document.getElementById("startBtn").addEventListener("click", async () => {
-        document.getElementById("startBtn").style.display = "none";
-        document.getElementById("wishesContainer").classList.remove("hidden");
-        const bgAudio = document.getElementById("bgMusic");
-        bgAudio.muted = isMuted;
-        try {
-          const playPromise = bgAudio.play();
-          if (playPromise !== undefined) {
-            playPromise.catch((error) => {
-              console.log("Audio play failed:", error);
-            });
-          }
-        } catch (err) {
-          console.log("Audio play failed:", err);
-        }
-        emojiInterval = setInterval(createEmoji, 300);
-        for (let wish of wishes) {
-          await typeWriter(wish);
-        }
-        document.getElementById("choices").classList.remove("hidden");
-        document.querySelectorAll(".choice-btn").forEach((btn) => {
-          btn.style.opacity = 1;
-        });
-      });
-      document.addEventListener("click", async function initAudio() {
-        const audios = ["bgMusic", "sisterMusic", "bestFriendMusic"];
-        for (let id of audios) {
-          const audio = document.getElementById(id);
-          try {
-            await audio.play();
-            audio.pause();
-            audio.currentTime = 0;
-          } catch (err) {
-            console.log("Audio initialization failed:", err);
-          }
-        }
-        document.removeEventListener("click", initAudio);
-      });
+        }, 100)
+    }, 12000)
 
-      createStars();
-      let honey = document.getElementById("body");
-      function fullScreen() {
-        honey.requestFullscreen();
-      }
+    var intervalContent;
+    var intervalTitle;
+    $("#btn__letter").on("click", function () {
+        $(".box__letter").slideDown()
+        setTimeout(function () {
+            $(".letter__border").slideDown();
+        }, 1000)
+        setTimeout(function () {
+            intervalTitle = setInterval(function () {
+                if (currentIndexTitle < charArrTitle.length) {
+                    document.querySelector(".title__letter").textContent += charArrTitle[currentIndexTitle];
+                    let i = document.createElement("i");
+                    i.className = "fa-solid fa-heart"
+                    document.querySelector(".title__letter").appendChild(i)
+                    currentIndexTitle++;
+                }
+                else {
+                    clearInterval(intervalTitle)
+                }
+            }, 100)
+        }, 2000)
+        setTimeout(function () {
+            document.querySelector("#heart__letter").classList.add("animationOp");
+            document.querySelector(".love__img").classList.add("animationOp");
+            document.querySelector("#mewmew").classList.add("animationOp");
+        }, 2800)
+        setTimeout(function () {
+            document.querySelectorAll(".heart").forEach((item) => {
+                item.classList.add("animation")
+            })
+        }, 3500)
+        setTimeout(function () {
+            intervalContent = setInterval(function () {
+                if (currentIndexLetter < charArrDateLetter.length) {
+                    text__letter.textContent += charArrDateLetter[currentIndexLetter];
+                    currentIndexLetter++;
+                }
+                else {
+                    clearInterval(intervalContent)
+                }
+            }, 50)
+        }, 2000)
+    })
+    $(".close").on("click", function () {
+        clearInterval(intervalContent)
+        document.querySelector(".title__letter").textContent = "";
+        text__letter.textContent = "";
+        currentIndexLetter = 0
+        currentIndexTitle = 0
+        document.querySelector("#heart__letter").classList.remove("animationOp");
+        document.querySelector(".love__img").classList.remove("animationOp");
+        document.querySelector("#mewmew").classList.remove("animationOp");
+        document.querySelectorAll(".heart").forEach((item) => {
+            item.classList.remove("animation")
+        })
+        $(".box__letter").slideUp();
+        $(".letter__border").slideUp();
+    })
 
-    </script>
-  </body>
+
+
+    let mailBox = document.querySelector('.mail')
+    let boxmail = document.querySelector('.boxMail')
+    var close = document.querySelector('.fa-xmark')
+    mailBox.onclick = function () {
+        mailBox.classList.toggle('active')
+        boxmail.classList.add('active')
+    }
+
+    close.addEventListener('click', function () {
+        boxmail.classList.remove('active')
+    })
+</script>
 
 </html>
